@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  
-  def index
-    load_articles
-  end
+  before_filter :load_articles, only: :index
+
+  def index;  end
+
   private
 
   def load_articles
