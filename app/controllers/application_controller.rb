@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :load_collection, only: :index
-  before_filter :build_new_object, only: [:new, :create]
+  def index
+    load_collection
+  end
 
-  def index; end
-  def new; end
+  def new
+    build_new_object
+  end
 
   private
 
