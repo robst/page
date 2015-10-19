@@ -11,6 +11,15 @@ class ApplicationController < ActionController::Base
     build_new_object
   end
 
+  def create
+    build_new_object
+    if update_object
+      render_index
+    else
+      render_new
+    end
+  end
+
   private
 
   def load_collection
@@ -21,8 +30,26 @@ class ApplicationController < ActionController::Base
     @object = klass.new
   end
 
+  def update_object
+    @object.attributes = object_params
+    @object.save
+  end
+
+  def render_new
+    render :new
+  end
+
+  def render_index
+    redirect_to klass.to_s.underscore.pluralize.to_sym
+  end
+
+
   def klass
     controller_name.classify.constantize
+  end
+
+  def param_class_name
+    klass.to_s.underscore.to_sym
   end
 
 end

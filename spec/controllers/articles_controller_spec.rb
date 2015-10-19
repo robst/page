@@ -26,6 +26,25 @@ RSpec.describe ArticlesController, type: :controller do
       end
     end
 
+    describe '#create' do
+      let(:attributes) { FactoryGirl.attributes_for(:article).except(:user) }
+      it 'redirect to article index if succeeded' do
+        expect {
+          post :create, article: attributes
+          }.to change(Article, :count).by(1)
+        expect(response).to redirect_to(:articles)
+      end
+
+      it 'renders new unless succeeded' do
+        expect(Article).to receive(:new).and_return(article)
+        expect(article).to receive(:attributes=).with(attributes).
+          and_return(article)
+        expect(article).to receive(:save).and_return(false)
+        post :create, article: attributes
+        expect(response).to render_template(:new)
+      end
+    end
+
     context 'with an existing article' do
       before do
         expect(Article).to receive(:find).with('5').and_return(article)
