@@ -75,12 +75,14 @@ RSpec.describe ArticlesController, type: :controller do
           put :update, id: 5, article: attributes
           expect(response).to render_template(:new)
         end
+
       end
 
-      describe '#show' do
-        it 'with get render the action and show' do
-          get :show, id:5
-          expect(response).to render_template(:show)
+      describe '#destroy' do
+        it 'redirect to article index' do
+          expect(article).to receive(:destroy).and_return(true)
+          delete :destroy, id:5
+          expect(response).to redirect_to(:articles)
         end
       end
     end

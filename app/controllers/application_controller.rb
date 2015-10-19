@@ -34,6 +34,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def destroy
+    load_object
+    @object.destroy
+    render_index
+  end
+
   private
 
   def load_collection
