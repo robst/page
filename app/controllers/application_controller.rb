@@ -20,10 +20,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def edit
+    load_object
+    render_new
+  end  
+
   private
 
   def load_collection
     @collection = klass.all
+  end
+
+  def load_object
+    @object = klass.find(params[:id])
   end
 
   def build_new_object
