@@ -4,6 +4,59 @@
     %title Page
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag "vendor/modernizr"
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     = csrf_meta_tags
   %body
-    = yield
+    .row
+      .large-12.columns
+        .nav-bar.right
+          %ul.button-group
+            %li
+              %a.button{:href => "#"} Link 1
+            %li
+              %a.button{:href => "#"} Link 2
+            %li
+              %a.button{:href => "#"} Link 3
+            %li
+              %a.button{:href => "#"} Link 4
+        %h1
+          Blog
+          %small This is my blog. It's awesome.
+        %hr/
+
+
+      .row
+        .large-9.columns{:role => "content"}
+          = yield
+        
+        %aside.large-3.columns
+          %h5 Categories
+          %ul.side-nav
+            %li
+              %a{:href => "#"} News
+            %li
+              %a{:href => "#"} Code
+            %li
+              %a{:href => "#"} Design
+            %li
+              %a{:href => "#"} Fun
+            %li
+              %a{:href => "#"} Weasels
+
+    %footer.row
+      .large-12.columns
+        %hr/
+        .row
+          .large-6.columns
+            %p © Copyright no one at all. Go to town.
+          .large-6.columns
+            %ul.inline-list.right
+              %li
+                %a{:href => "#"} Link 1
+              %li
+                %a{:href => "#"} Link 2
+              %li
+                %a{:href => "#"} Link 3
+              %li
+                %a{:href => "#"} Link 4
