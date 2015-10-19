@@ -25,6 +25,15 @@ class ApplicationController < ActionController::Base
     render_new
   end  
 
+  def update
+    load_object
+    if update_object
+      render_index
+    else
+      render_new
+    end
+  end
+
   private
 
   def load_collection

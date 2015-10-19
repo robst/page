@@ -17,6 +17,7 @@ RSpec.describe ArticlesController, type: :controller do
 
   describe 'single article actions' do
     let(:article) { double }
+    let(:attributes) { FactoryGirl.attributes_for(:article).except(:user) }
 
     describe '#new' do
       it 'with get render the new action' do
@@ -27,7 +28,7 @@ RSpec.describe ArticlesController, type: :controller do
     end
 
     describe '#create' do
-      let(:attributes) { FactoryGirl.attributes_for(:article).except(:user) }
+      
       it 'redirect to article index if succeeded' do
         expect {
           post :create, article: attributes
@@ -53,6 +54,25 @@ RSpec.describe ArticlesController, type: :controller do
       describe '#edit' do
         it 'with get render the action with new template' do
           get :edit, id:5
+          expect(response).to render_template(:new)
+        end
+      end
+
+      describe '#update' do
+        before do
+          expect(article).to receive(:attributes=).with(attributes).
+            and_return(article)
+        end
+
+        it 'redirect to article index if succeeded' do
+          expect(article).to receive(:save).and_return(true)
+          put :update, id: 5, article: attributes
+          expect(response).to redirect_to(:articles)
+        end
+
+        it 'renders new unless succeeded' do
+          expect(article).to receive(:save).and_return(false)
+          put :update, id: 5, article: attributes
           expect(response).to render_template(:new)
         end
       end
