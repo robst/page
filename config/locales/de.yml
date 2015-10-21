@@ -1,0 +1,12 @@
+de:
+  articles:
+    article:
+      article_written: 'Artikel geschrieben am'
+
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M"
