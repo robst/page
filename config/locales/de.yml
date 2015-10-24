@@ -3,6 +3,11 @@ de:
     article:
       article_written: 'Artikel geschrieben am'
 
+  activerecord:
+    attributes: 
+      article: 
+        title: "Titel"
+        content: "Inhalt"
 
   date:
     formats:
@@ -10,3 +15,8 @@ de:
   time:
     formats:
       default: "%d.%m.%Y %H:%M"
+
+  errors:
+    messages:
+      blank: "muss ausgefüllt sein"
+      taken: "ist bereits vorhanden"

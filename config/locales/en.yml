@@ -23,7 +23,11 @@ en:
   articles:
     article:
       article_written: 'Article written at'
-
+  activerecord:
+    attributes: 
+      article: 
+        title: "Title"
+        content: "Content"
 
 
   date:
@@ -32,3 +36,8 @@ en:
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
+
+  errors:
+    messages:
+      blank: "can't be blank"
+      taken: "should be unique"
