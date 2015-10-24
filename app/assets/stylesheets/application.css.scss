@@ -3,3 +3,14 @@
 .translation_missing {
   border: 1px dotted red;
 }
+
+.field_with_errors {
+  >label{
+    color: red;
+    font-weight: bold
+  }
+  
+  >input, textarea {
+    border: 2px solid red;
+  }
+}
