@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate(username, password)
     user = find_by(username: username)
-    if user && user.password_hash == user.generate_hash(password)
+    if user && user.password_hash.eql?(user.generate_hash(password))
       user
     else
       nil
