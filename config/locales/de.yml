@@ -1,4 +1,6 @@
 de:
+  welcome: "Hallo %{username}"
+  login: "Einloggen"
   articles:
     article:
       article_written: 'Artikel geschrieben am'
