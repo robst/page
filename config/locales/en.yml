@@ -1,6 +1,7 @@
 en:
   welcome: "Hello %{username}"
   login: "Log In"
+  logout: "Log Out"
   articles:
     article:
       article_written: 'Article written at'
