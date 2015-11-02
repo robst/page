@@ -3,5 +3,7 @@
 FactoryGirl.define do
   factory :user do
     name "MyString"
+    username "username"
+    password "secret"
   end
 end
