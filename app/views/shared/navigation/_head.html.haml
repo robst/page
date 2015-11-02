@@ -1,10 +1,7 @@
 .nav-bar.right
+  = welcome_message
   %ul.button-group
     %li
-      =link_to t('.root'),root_path
+      =link_to t('.root'), root_path
     %li
-      %a.button{:href => "#"} Link 2
-    %li
-      %a.button{:href => "#"} Link 3
-    %li
-      %a.button{:href => "#"} Link 4
+      =link_to t('.login'), new_session_path
