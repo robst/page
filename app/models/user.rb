@@ -6,14 +6,14 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, on: :create, confirmation: true
 
-  def self.authenticate(username, password)
-    user = find_by(username: username)
-    if user && user.password_hash.eql?(user.generate_hash(password))
-      user
-    else
-      nil
-    end
-  end
+  # def self.authenticate(username, password)
+  #   user = find_by(username: username)
+  #   if user && user.password_hash.eql?(user.generate_hash(password))
+  #     user
+  #   else
+  #     nil
+  #   end
+  # end
 
   def generate_hash plain
     BCrypt::Engine.hash_secret(plain, password_salt)
