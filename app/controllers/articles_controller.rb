@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :authentificate!, except: [:index, :show]
+
   private
   
   def object_params

@@ -87,4 +87,8 @@ class ApplicationController < ActionController::Base
     true
   end
 
+  def authentificate!
+    redirect_to :new_session unless logged_in?
+  end
+
 end
