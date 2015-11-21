@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :article do
     title "MyString"
     content "MyText"
-    user nil
+    association :user, factory: :user, strategy: :build
   end
 end
