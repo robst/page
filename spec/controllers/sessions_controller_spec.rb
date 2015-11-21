@@ -2,25 +2,14 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
 
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
+  describe '#new' do
+    before { get :new }
+    it { is_expected.to respond_with 200 }
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      post :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to redirect_to(:root)
-    end
+  describe '#destroy' do
+    before { get :destroy }
+    it { is_expected.to redirect_to(:root) }
   end
 
 end
