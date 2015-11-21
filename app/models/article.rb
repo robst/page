@@ -3,4 +3,5 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true
+  validates :user, presence: true
 end
