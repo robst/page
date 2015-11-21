@@ -58,6 +58,7 @@ class ApplicationController < ActionController::Base
 
   def update_object
     @object.attributes = object_params
+    before_save
     @object.save
   end
 
@@ -68,6 +69,8 @@ class ApplicationController < ActionController::Base
   def render_index
     redirect_to klass.to_s.underscore.pluralize.to_sym
   end
+
+  def before_save; end
 
 
   def klass
