@@ -10,16 +10,11 @@ RSpec.describe ArticlesController, type: :controller do
     before do
       allow_any_instance_of(ArticlesController).to receive(:current_user).
                                                     and_return(user)
-
     end
-    describe '#index' do
-      let(:articles) { double }
 
-      it 'with get renders the action' do
-        expect(Article).to receive(:all).and_return(articles)
-        get :index
-        expect(response).to render_template(:index)
-      end
+    describe '#index' do
+      before { get :index }
+      it { is_expected.to respond_with 200 }
     end
 
     describe 'single article actions' do
@@ -27,15 +22,12 @@ RSpec.describe ArticlesController, type: :controller do
       let(:attributes) { FactoryGirl.attributes_for(:article).except(:user) }
 
       describe '#new' do
-        it 'with get render the new action' do
-          expect(Article).to receive(:new).and_return(article)
-          get :new
-          expect(response).to render_template(:new)
-        end
+        before { get :new }
+        it { is_expected.to respond_with 200 }
       end
 
       describe '#create' do
-        
+
         it 'redirect to article index if succeeded' do
           expect {
             post :create, article: attributes
@@ -61,10 +53,8 @@ RSpec.describe ArticlesController, type: :controller do
         end
         
         describe '#edit' do
-          it 'with get render the action with new template' do
-            get :edit, id:5
-            expect(response).to render_template(:new)
-          end
+          before { get :edit, id:5 }
+          it { is_expected.to respond_with 200 }
         end
 
         describe '#update' do
@@ -90,11 +80,9 @@ RSpec.describe ArticlesController, type: :controller do
         end
 
         describe '#destroy' do
-          it 'redirect to article index' do
-            expect(article).to receive(:destroy).and_return(true)
-            delete :destroy, id:5
-            expect(response).to redirect_to(:articles)
-          end
+          before { expect(article).to receive(:destroy).and_return(true) }
+          before { get :destroy, id:5 }
+          it { is_expected.to redirect_to(:articles) }
         end
       end
     end
