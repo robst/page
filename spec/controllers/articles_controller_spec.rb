@@ -6,9 +6,11 @@ RSpec.describe ArticlesController, type: :controller do
   end
 
   context 'when logged in' do
+    let(:user) { FactoryGirl.build :user }
     before do
-      allow_any_instance_of(ArticlesController).to receive(:logged_in?).
-                                                    and_return(true)
+      allow_any_instance_of(ArticlesController).to receive(:current_user).
+                                                    and_return(user)
+
     end
     describe '#index' do
       let(:articles) { double }
@@ -45,6 +47,8 @@ RSpec.describe ArticlesController, type: :controller do
           expect(Article).to receive(:new).and_return(article)
           expect(article).to receive(:attributes=).with(attributes).
             and_return(article)
+          expect(article).to receive(:user=).with(user).
+            and_return(article)
           expect(article).to receive(:save).and_return(false)
           post :create, article: attributes
           expect(response).to render_template(:new)
@@ -66,6 +70,8 @@ RSpec.describe ArticlesController, type: :controller do
         describe '#update' do
           before do
             expect(article).to receive(:attributes=).with(attributes).
+              and_return(article)
+            expect(article).to receive(:user=).with(user).
               and_return(article)
           end
 
