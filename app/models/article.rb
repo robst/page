@@ -4,4 +4,6 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true
   validates :user, presence: true
+
+  delegate :name, to: :user, prefix: true, allow_nil: true
 end
