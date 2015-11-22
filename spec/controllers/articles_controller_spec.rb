@@ -1,9 +1,45 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
+
+  let(:attributes) { FactoryGirl.attributes_for(:article).except(:user) }
+
   before do
     expect(response).to be_success
   end
+
+  context 'when not logged in' do
+    describe '#index' do
+      before { get :index }
+      it { is_expected.to respond_with 200 }
+    end
+
+    describe '#new' do
+      before { get :new }
+      it { is_expected.to redirect_to(:new_session) }
+    end
+
+    describe '#create' do
+      before { post :create, article: attributes }
+      it { is_expected.to redirect_to(:new_session) }
+    end
+
+    describe '#edit' do
+      before { get :edit, id:5 }
+      it { is_expected.to redirect_to(:new_session) }
+    end
+
+    describe '#update' do
+      before { put :update, id: 5, article: attributes }
+      it { is_expected.to redirect_to(:new_session) }
+    end
+
+    describe '#destroy' do
+      before { delete :destroy, id:5 }
+      it { is_expected.to redirect_to(:new_session) }
+    end
+  end
+
 
   context 'when logged in' do
     let(:user) { FactoryGirl.build :user }
@@ -19,7 +55,6 @@ RSpec.describe ArticlesController, type: :controller do
 
     describe 'single article actions' do
       let(:article) { double }
-      let(:attributes) { FactoryGirl.attributes_for(:article).except(:user) }
 
       describe '#new' do
         before { get :new }
@@ -81,7 +116,7 @@ RSpec.describe ArticlesController, type: :controller do
 
         describe '#destroy' do
           before { expect(article).to receive(:destroy).and_return(true) }
-          before { get :destroy, id:5 }
+          before { delete :destroy, id:5 }
           it { is_expected.to redirect_to(:articles) }
         end
       end
