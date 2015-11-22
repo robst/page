@@ -5,6 +5,7 @@ en:
   articles:
     article:
       article_written: 'Article written at'
+      written_by: 'by'
   activerecord:
     attributes: 
       article: 

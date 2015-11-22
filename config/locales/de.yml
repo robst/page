@@ -5,6 +5,7 @@ de:
   articles:
     article:
       article_written: 'Artikel geschrieben am'
+      written_by: 'von'
 
   activerecord:
     attributes: 
