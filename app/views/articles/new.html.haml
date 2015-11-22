@@ -1,6 +1,6 @@
 
-= form_for @object do |f|
-  = render partial: 'shared/errors', locals: { object: @object }
+= form_for @article do |f|
+  = render partial: 'shared/errors', locals: { object: @article }
   .row
     .large-4.columns
       = f.label :title

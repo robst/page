@@ -39,6 +39,7 @@ RSpec.describe ArticlesController, type: :controller do
           expect(Article).to receive(:new).and_return(article)
           expect(article).to receive(:attributes=).with(attributes).
             and_return(article)
+          expect(article).to receive(:user).and_return(nil)
           expect(article).to receive(:user=).with(user).
             and_return(article)
           expect(article).to receive(:save).and_return(false)
@@ -61,8 +62,7 @@ RSpec.describe ArticlesController, type: :controller do
           before do
             expect(article).to receive(:attributes=).with(attributes).
               and_return(article)
-            expect(article).to receive(:user=).with(user).
-              and_return(article)
+            expect(article).to receive(:user).and_return(user)
           end
 
           it 'redirect to article index if succeeded' do
