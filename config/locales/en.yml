@@ -6,6 +6,11 @@ en:
     article:
       article_written: 'Article written at'
       written_by: 'by'
+  shared:
+    navigation:
+      head:
+        root: "Mainpage"
+        login: "LogMeIn"
   activerecord:
     attributes: 
       article: 

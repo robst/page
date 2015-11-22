@@ -7,6 +7,12 @@ de:
       article_written: 'Artikel geschrieben am'
       written_by: 'von'
 
+  shared:
+    navigation:
+      head:
+        root: "Startseite"
+        login: "LogIn"
+
   activerecord:
     attributes: 
       article: 
