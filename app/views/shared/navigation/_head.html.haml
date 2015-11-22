@@ -1,8 +1,7 @@
-.nav-bar.right
-  = welcome_message
-  = logout_link
-  %ul.button-group
-    %li
-      =link_to t('.root'), root_path
-    %li
-      =link_to t('.login'), new_session_path
+= welcome_message
+= logout_link
+%ul.unstyled
+  %li
+    =link_to t('.root'), root_path
+  %li
+    =link_to t('.login'), new_session_path
