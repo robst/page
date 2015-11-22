@@ -1,16 +1,12 @@
-@import "foundation_and_overrides";
+@import "variables";
+@import "global";
+@import "media";
+@import "errors_and_hints";
 
-.translation_missing {
-  border: 1px dotted red;
+
+.container {
+  border: 1px solid green;
 }
 
-.field_with_errors {
-  >label{
-    color: red;
-    font-weight: bold
-  }
-  
-  >input, textarea {
-    border: 2px solid red;
-  }
-}
+
+
