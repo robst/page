@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = Authentification.local_login params
+    user = Authentification.login params
     if user
       session[:user_id] = user.id
       redirect_to root_url
