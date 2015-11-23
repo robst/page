@@ -1,6 +1,8 @@
 $danger-color: #f00;
 $gray-color: #dcdcdc;
 $darkgray-color: #262626;
-
+$default-font-color: #222222;
+$default-background-color: #ffffff;
+$default-dark-background-color: darken($default-background-color, 10%); 
 
 $small-size: 0.4em;
