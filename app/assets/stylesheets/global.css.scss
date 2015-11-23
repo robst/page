@@ -30,6 +30,8 @@ small {
   padding: 0.5em;
   text-align: center;
   cursor: pointer;
+  border: solid 1px $gray-color;
+  border-radius: 2px;
 }
 
 .row {
