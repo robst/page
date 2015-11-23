@@ -2,13 +2,10 @@
 = form_for @article do |f|
   = render partial: 'shared/errors', locals: { object: @article }
   .row
-    .large-4.columns
-      = f.label :title
-      = f.text_field :title
+    = f.label :title
+    = f.text_field :title
   .row
-    .large-12.columns
-      = f.label :content
-      = f.text_area :content
+    = f.label :content
+    = f.text_area :content
   .row
-    .large-12.columns
-      =f.submit class: 'button success'
+    =f.submit class: 'button success'
