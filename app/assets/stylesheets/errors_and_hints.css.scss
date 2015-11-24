@@ -12,3 +12,17 @@
     border: 2px solid $danger-color;
   }
 }
+
+.alert {
+  padding: 0.5em;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.alert-danger {
+  background-color: $light-danger-color;
+  color: $dark-danger-color;
+  font-size: 0.6em;
+  bottom-margin: 0.2em;
+  border: solid 1px $dark-danger-color;
+}
