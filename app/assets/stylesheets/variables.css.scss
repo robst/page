@@ -1,4 +1,6 @@
 $danger-color: #f00;
+$dark-danger-color: darken($danger-color, 30%);
+$light-danger-color: lighten($danger-color, 30%);
 $gray-color: #dcdcdc;
 $darkgray-color: #262626;
 $default-font-color: #222222;
