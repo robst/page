@@ -17,12 +17,24 @@
   padding: 0.5em;
   font-weight: bold;
   border-radius: 3px;
+  font-size: 0.6em;
+  bottom-margin: 0.2em;
 }
 
 .alert-danger {
   background-color: $light-danger-color;
   color: $dark-danger-color;
-  font-size: 0.6em;
-  bottom-margin: 0.2em;
   border: solid 1px $dark-danger-color;
+}
+
+.alert-success {
+  background-color: $light-success-color;
+  color: $dark-success-color;
+  border: solid 1px $dark-success-color;
+}
+
+.alert-warning {
+  background-color: $light-warning-color;
+  color: $dark-warning-color;
+  border: solid 1px $dark-warning-color;
 }
