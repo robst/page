@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
   private
 
   def load_collection
-    @articles = Article.all
+    @articles = ArticlePresenter.present_collection Article.all, view_context
   end
 
   def load_object
