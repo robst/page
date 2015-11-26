@@ -48,6 +48,10 @@ RSpec.describe ArticlesController, type: :controller do
                                                     and_return(user)
     end
 
+    describe 'params' do
+      it { is_expected.to permit(:title, :content).for(:create) }
+    end
+
     describe '#index' do
       before { get :index }
       it { is_expected.to respond_with 200 }
