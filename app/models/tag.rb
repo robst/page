@@ -7,4 +7,8 @@ class Tag < ActiveRecord::Base
     name
   end
 
+  def self.plucked_names
+    pluck(:name)
+  end
+
 end

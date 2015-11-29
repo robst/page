@@ -8,4 +8,5 @@ class Article < ActiveRecord::Base
   validates :user, presence: true
 
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :plucked_names, to: :tags, prefix: true, allow_nil: true
 end

@@ -15,7 +15,7 @@ class ArticlePresenter < BasePresenter
   end
 
   def tagged
-    self.tags.join(', ')
+    self.tags_plucked_names.join(', ')
   end
 
 end
