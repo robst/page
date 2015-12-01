@@ -5,6 +5,10 @@ class BasePresenter < SimpleDelegator
     self.options = available_options.merge options
     super(model)
   end
+#new, remove it from article
+  def self.present_collection collection, view
+    collection.collect{ |object| self.new(object, view, excerpt: true) }
+  end
 
   private
 
