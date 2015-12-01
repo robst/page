@@ -1,9 +1,5 @@
 class ArticlePresenter < BasePresenter
 
-  # def self.present_collection collection, view
-  #   collection.collect{ |object| ArticlePresenter.new(object, view, excerpt: true) }
-  # end
-
   def display_content
     return stripped_content if options[:excerpt]
     content
