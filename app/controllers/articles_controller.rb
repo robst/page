@@ -7,11 +7,11 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    build_new_object
+    load_object
   end
 
   def create
-    build_new_object
+    load_object
     if update_object
       render_index
     else
@@ -46,11 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def load_object
-    @article = Article.find(params[:id])
-  end
-
-  def build_new_object
-    @article = Article.new
+    @article = params[:id] ? Article.find(params[:id]) : Article.new
   end
 
   def update_object
