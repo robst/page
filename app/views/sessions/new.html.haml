@@ -1,11 +1,12 @@
 %h1 Log in
-= form_tag sessions_path do
+= form_for @login, url: sessions_path do |f|
+  = render partial: 'shared/errors', locals: { object: @login }
   %p
-    = label_tag :username
+    = f.label :username
     %br/
-    = text_field_tag :username, params[:username]
+    = f.text_field :username
   %p
-    = label_tag :password
+    = f.label :password
     %br/
-    = password_field_tag :password
+    = f.password_field :password
   %p= submit_tag t('login'), class: 'button button-default'
