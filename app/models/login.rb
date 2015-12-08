@@ -3,8 +3,6 @@ class Login
   include ActiveSupport::Callbacks
   include ActiveModel::Validations::Callbacks
 
-  define_callbacks :save
-
   attr_accessor :username, :password
 
   validate :valid_user
@@ -15,10 +13,7 @@ class Login
   end
 
   def save
-    return false unless valid?
-    run_callbacks :save do
-      true
-    end
+    valid?
   end
 
   private
