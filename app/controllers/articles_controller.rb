@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 
   def create
     load_object
-    if update_object
+    if save_object
       render_index
     else
       render_new
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
   def update
     load_object
-    if update_object
+    if save_object
       render_index
     else
       render_new
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
     @article = params[:id] ? Article.find(params[:id]) : Article.new
   end
 
-  def update_object
+  def save_object
     @article.attributes = article_params
     @article.user ||= current_user
     @article.save
