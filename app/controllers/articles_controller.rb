@@ -12,11 +12,7 @@ class ArticlesController < ApplicationController
 
   def create
     load_object
-    if save_object
-      render_index
-    else
-      render_new
-    end
+    save_object || render_new
   end
 
   def edit
@@ -26,11 +22,7 @@ class ArticlesController < ApplicationController
 
   def update
     load_object
-    if save_object
-      render_index
-    else
-      render_new
-    end
+    save_object || render_new
   end
 
   def destroy
@@ -52,7 +44,7 @@ class ArticlesController < ApplicationController
   def save_object
     @article.attributes = article_params
     @article.user ||= current_user
-    @article.save
+    render_index if @article.save
   end
 
   def render_new
