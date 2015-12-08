@@ -1,32 +1,28 @@
 class ArticlesController < ApplicationController
 
   before_action :authentificate!, except: [:index, :show]
+  before_action :load_object, except: :index
 
   def index
     load_collection
   end
 
   def new
-    load_object
   end
 
   def create
-    load_object
     save_object || render_new
   end
 
   def edit
-    load_object
     render_new
   end  
 
   def update
-    load_object
-    save_object || render_new
+    create
   end
 
   def destroy
-    load_object
     @article.destroy
     render_index
   end
