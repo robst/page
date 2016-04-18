@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
   root 'articles#index'
-  resources :articles
+  resources :articles, only: [:index, :show]
   resources :sessions, only: [:new, :create]
 
   get "log_out" => "sessions#destroy", as: :log_out
+
+  namespace :admin do 
+    resources :articles
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
