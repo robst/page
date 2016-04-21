@@ -1,0 +1,53 @@
+html 
+  font-size: 10px
+
+.right 
+  float: right
+
+.left 
+  float: left
+
+ul.unstyled 
+  margin-top: 0
+  float: left
+  margin-left: 0.2em
+  list-style: none
+  > li 
+    float: left
+    margin-left: 0.2em
+
+small 
+  color: $darkgray-color
+  font-size: $small-size
+
+.button 
+  padding: 0.3em
+  text-align: center
+  cursor: pointer
+  border-radius: 2px
+  text-decoration: none
+
+.button-default 
+  color: $default-font-color
+  border: solid 1px $gray-color
+  background-color: $default-background-color
+  &:hover 
+    background-color: $default-dark-background-color
+
+.row 
+  clear: both
+
+.container 
+  > div:nth-child(2) 
+    border-top: 1px dotted $gray-color
+    > article > h3 
+      margin-bottom: 0.2em
+
+footer 
+  width: 100%
+  border-top: 1px solid $gray-color
+  position: absolute
+  left: 0
+  bottom: 0
+  height: 2em
+
