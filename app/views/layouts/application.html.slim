@@ -1,32 +1,32 @@
-!!! Strict
-%html
-  %head
-    %title Page
+doctype Strict
+html
+  head
+    title Page
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
     = csrf_meta_tags
-  %body
+  body
     .container
       .row
         .left
-          %h1
+          h1
             Blog
-            %small This is my blog. It's awesome.
+            small This is my blog. It's awesome.
         .right
           = render 'shared/navigation/head'
 
-      .row{:role => "content"}
+      .row role = "content"
         = yield
         
-    %footer
+    footer
       .row
-        %ul.inline-list.right
-          %li
-            %a{:href => "#"} Link 1
-          %li
-            %a{:href => "#"} Link 2
-          %li
-            %a{:href => "#"} Link 3
-          %li
-            %a{:href => "#"} Link 4
+        ul.inline-list.right
+          li
+            a href = "#" Link 1
+          li
+            a href = "#" Link 2
+          li
+            a href = "#" Link 3
+          li
+            a href = "#" Link 4
