@@ -9,7 +9,7 @@ class Login
   validate :valid_password
 
   def user
-    @user ||= User.find_by(username: username) if username.present?
+    @user ||= User.find_by(username: username)
   end
 
   def save
@@ -19,12 +19,12 @@ class Login
   private
 
   def valid_user
-    return unless user.blank?
+    return if user
     errors.add(:username, 'not found')      
   end
 
   def valid_password
-    return if user && user.password_hash.eql?(user.generate_hash(password))
+    return if user && user.password_hash.eql?(UserPassword.generate_hash self)
     errors.add(:password, 'not valid')
   end
 
