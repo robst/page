@@ -3,10 +3,14 @@
 # and open the template in the editor.
 
 class UserPassword
-  def self.generate_hash user
-    BCrypt::Engine.hash_secret(user.password, user.password_salt)
+  def self.generate_hash password, salt
+    BCrypt::Engine.hash_secret(password, salt)
   end
-  
+
+  def self.generate_hash_for user
+    generate_hash user.password, user.password_salt
+  end
+
   def self.generate_salt
     BCrypt::Engine.generate_salt
   end
