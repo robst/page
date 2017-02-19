@@ -20,12 +20,16 @@ class Login
 
   def valid_user
     return if user
-    errors.add(:username, 'not found')      
+    errors.add(:username, 'not found')
   end
 
   def valid_password
-    return if user && user.password_hash.eql?(UserPassword.generate_hash self)
+    return if user && user.password_hash.eql?(password_hash)
     errors.add(:password, 'not valid')
+  end
+
+  def password_hash
+    UserPassword.generate_hash(password, user.password_salt)
   end
 
 end
