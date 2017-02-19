@@ -1,4 +1,4 @@
 class Admin::BackendController < ApplicationController
-  before_action :authentificate!
+  before_action :authenticate!
 
 end
